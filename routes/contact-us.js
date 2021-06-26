@@ -9,12 +9,16 @@ router.get('/contact-us', (req, res, next) => {
     res.sendFile(path.join(rootDir,'views','contact-us.html'));
   });
   
-//  /admin/add-product =>POST
-  router.post('/', (req, res, next) => {
-    console.log(req.body);
-    // res.send('form added successfully');
-    res.redirect('/');
+//  /admin/contact =>POST
+router.post('/contact-us', (req, res, next) => {
+  console.log(req.body);
+  // res.send(alert('<h1>Form successfuly filled</h1>'));
+  res.redirect('/success');
+});
 
-  });
+router.use('/success',(req, res, next) => {
+  res.send('<h1>Form successfuly filled</h1>');
+})
+
   
   module.exports = router;
